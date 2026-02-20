@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bea Sollesta</title>
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial, sans-serif;
+            }
+
+            body {
+                background: #f4f4f4;
+                color: #333;
+                line-height: 1.6;
+            }
+
+            section {
+                padding: 60px 10%;
+            }
+
+            h2 {
+                margin-bottom: 20px;
+                font-size: 28px;
+                border-bottom: 2px solid #333;
+                display: inline-block;
+                padding-bottom: 5px;
+            }
+
+            /* HERO */
+            .hero {
+                text-align: center;
+                background: #111;
+                color: white;
+                padding: 100px 20px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                margin-top: 10px;
+                font-size: 18px;
+                color: #bbb;
+            }
+
+            /* ABOUT */
+            .about-container {
+                display: flex;
+                gap: 40px;
+                flex-wrap: wrap;
+                align-items: center;
+            }
+
+            .about-container img {
+                width: 200px;
+                border-radius: 50%;
+            }
+
+            .about-text {
+                flex: 1;
+            }
+
+            /* SKILLS -- Currently commented out, but the styling is used in the Projects section for the skill tags */
+            .skills-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            /*
+            .skill {
+                background: #111;
+                color: white;
+                padding: 6px 15px;
+                border-radius: 20px;
+                font-size: 12px;
+            } */
+            .skill {
+                display: inline-block;
+                padding: 6px 13px;
+                border: 2px solid #111; 
+                border-radius: 20px;     
+                font-size: 12px;
+                color: #111;             
+                background: transparent; 
+                transition: all 0.3s ease;
+                cursor: default;
+            }
+
+            .skill:hover {
+                background: #111;
+                color: white;
+            }
+
+            /* PROJECTS CAROUSEL */
+            .carousel {
+                position: relative;
+                overflow: hidden;
+                max-width: 600px;
+                margin: auto;
+            }
+
+            .carousel-container {
+                display: flex;
+                transition: transform 0.5s ease-in-out;
+            }
+
+            .project-card {
+                min-width: 100%;
+                background: white;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            }
+
+            .carousel-buttons {
+                text-align: center;
+                margin-top: 15px;
+            }
+
+            .carousel-buttons button {
+                padding: 8px 15px;
+                margin: 5px;
+                cursor: pointer;
+                border: none;
+                background: #111;
+                color: white;
+                border-radius: 5px;
+            }
+
+            .carousel-indicators {
+                text-align: center;
+                margin-top: 15px;
+            }
+
+            .carousel-indicators .dot {
+                display: inline-block;
+                width: 12px;
+                height: 12px;
+                margin: 0 5px;
+                background-color: #bbb;
+                border-radius: 50%;
+                cursor: pointer;
+            }
+
+            .carousel-indicators .dot.active {
+                background-color: #111;
+            }
+
+            /* BLOG -- Ongoing Projects section is currently used instead of Blog, but the styling is kept for future use */
+            .blog-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+            }
+
+            .blog-card {
+                background: white;
+                padding: 15px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            }
+
+            .blog-card img {
+                width: 100%;
+                border-radius: 8px;
+                margin-bottom: 10px;
+            }
+
+            /* CONTACT */
+            .contact-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .contact a{
+                display: inline-block;
+                padding: 6px 13px; 
+                border-radius: 20px;
+                font-size: 15px;
+                color: #111;             
+                background: transparent; 
+                transition: all 0.3s ease;
+                cursor: default;
+                text-decoration: none;
+            }
+
+            .contact a:hover {
+                background: #111;
+                color: white;
+            }
+
+            footer {
+                text-align: center;
+                padding: 20px;
+                background: #111;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+
+        <!-- HERO -->
+        <section class="hero">
+            <h1>Bea Claire Sollesta</h1>
+            <p>Aspiring Full-Stack Developer & AI Enthusiast</p>
+        </section>
+
+        <!-- ABOUT -->
+        <section>
+            <h2>About Me</h2>
+            <div class="about-container">
+                <img src="/imgs/my-photo.png" alt="Profile Photo">
+                <div class="about-text">
+                    <p><strong>Education:</strong> 4th year BS Computer Science @DLSU</p>
+                    <p><strong>Interests:</strong> Web Development, AI/ML, Data Analysis</p>
+                    <br>
+                    <p>I love building clean, scalable web applications and turning ideas into real-world solutions. Exploring new technologies keeps me energized, and I enjoy solving challenging problems through collaboration with talented developers, like <a href="https://byanka8.github.io/portfolio/" target="_blank">Bianca Sollesta</a>↗.</p>
+                </div>
+            </div>
+        </section>
+
+        
+        <!-- SKILLS 
+        <section>
+            <h2>Skills</h2>
+            <div class="skills-list">
+                <div class="skill">HTML/CSS</div>
+                <div class="skill">JavaScript</div>
+                <div class="skill">React</div>
+                <div class="skill">Node.js</div>
+                <div class="skill">MongoDB</div>
+                <div class="skill">Git</div>
+                <div class="skill">Prompt Engineering</div>
+            </div>
+        </section>
+        -->
+
+        <!-- PROJECTS -->
+        <section>
+            <h2>Projects</h2>
+            <p>Here are some of the <a href="https://github.com/MoominHana" target="_blank">projects</a> I've worked on, showcasing my skills in web development and machine learning.</p>
+
+            <div class="carousel">
+                <div class="carousel-container" id="carousel">
+                    <div class="project-card">
+                        <img src="/imgs/portfolio-website.png" alt="Portfolio Website" style="width:100%; border-radius:8px; margin-bottom:10px;">
+                        <h3>Portfolio Website</h3>
+                        <p>This responsive personal portfolio deployed using GitHub Pages.</p>
+                        <div class="skills-list">
+                            <div class="skill">Web Development</div>
+                            <div class="skill">HTML/CSS</div>
+                            <div class="skill">JavaScript</div>
+                            <div class="skill">React</div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="/imgs/image-classifier.png" alt="Image Classifier Dashboard" style="width:100%; border-radius:8px; margin-bottom:10px;">
+                        <h3>Image Classifier Dashboard</h3>
+                        <p>A Python-based gRPC program developed to simulate client-server distributed system.</p>
+                        <div class="skills-list">
+                            <div class="skill">Distributed Systems</div>
+                            <div class="skill">Python</div>
+                            <div class="skill">gRPC</div>
+                            <div class="skill">DearPyGui</div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="/imgs/forest-analysis.png" alt="Forest Structure Analysis" style="width:100%; border-radius:8px; margin-bottom:10px;">
+                        <h3>Forest Structure Analysis</h3>
+                        <p>ML-based forest structure analysis and classification with Random Forest, Decision Tree, and KNN.</p>
+                        <div class="skills-list">
+                            <div class="skill">Machine Learning</div>
+                            <div class="skill">Python</div>
+                            <div class="skill">Scikit-learn</div>
+                            <div class="skill">Pandas</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-indicators" id="carousel-indicators">
+                <!-- JS will populate dots -->
+            </div>
+
+            <div class="carousel-buttons">
+                <button onclick="prevSlide()">Prev</button>
+                <button onclick="nextSlide()">Next</button>
+            </div>
+
+        </section>
+
+        <!-- ONGOING PROJECTS -->
+        <section>
+            <h2>Ongoing Projects</h2>
+            <p>These are some of the projects I'm currently working on to further develop my skills and explore new technologies.</p>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <h4>Room Reservation System</h4>
+                    <p><strong>Skills:</strong> Frontend Web Development</p>
+                    <p>In collaboration with Bianca: System for managing room reservations with user authentication and scheduling features.</p>
+                </div>
+
+                <div class="blog-card">
+                    <h4>Pandigital Equation Puzzles</h4>
+                    <p><strong>Skills:</strong> Mobile Development</p>
+                    <p>An interactive mobile development project using React Native, aiming to challenge users with mathematical puzzles.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOG
+        <section>
+            <h2>Blog</h2>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <img src="blog-image.jpg" alt="Blog Image">
+                    <h4>How I Built My Expense Tracker</h4>
+                    <p><strong>Category:</strong> Web Development</p>
+                    <p>A breakdown of how I structured my client-server architecture...</p>
+                </div>
+
+                <div class="blog-card">
+                    <img src="blog-image.jpg" alt="Blog Image">
+                    <h4>Understanding Git Branches</h4>
+                    <p><strong>Category:</strong> Git</p>
+                    <p>What I learned about managing master and main branches...</p>
+                </div>
+            </div>
+        </section>
+        -->
+
+        <!-- CONTACT -->
+        <section class="contact">
+            <h2>Contact Me</h2>
+            <div class="contact-list"> 
+                <a href="mailto:bclaire.sollesta04@gmail.com">Email</a>
+                <a href="https://github.com/moominhana" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/in/bea-sollesta" target="_blank">LinkedIn</a>
+            </div>
+        </section>
+
+        <footer>
+            © 2026 Bea Claire Sollesta · v1.1 (Q1 2026)
+        </footer>
+
+        <script>
+            let index = 0;
+            const slides = document.querySelectorAll(".project-card");
+            const indicatorsContainer = document.getElementById("carousel-indicators");
+
+            // Initialize dots
+            slides.forEach((_, i) => {
+                const dot = document.createElement("span");
+                dot.classList.add("dot");
+                dot.addEventListener("click", () => {
+                    index = i;
+                    showSlide();
+                });
+                indicatorsContainer.appendChild(dot);
+            });
+
+            function showSlide() {
+                const carousel = document.getElementById("carousel");
+                carousel.style.transform = "translateX(" + (-index * 100) + "%)";
+                
+                // Update dots
+                const dots = document.querySelectorAll(".dot");
+                dots.forEach(dot => dot.classList.remove("active"));
+                dots[index].classList.add("active");
+            }
+
+            function nextSlide() {
+                index = (index + 1) % slides.length;
+                showSlide();
+            }
+
+            function prevSlide() {
+                index = (index - 1 + slides.length) % slides.length;
+                showSlide();
+            }
+
+            // Show initial slide
+            showSlide();
+        </script>
+    </body>
+</html>
