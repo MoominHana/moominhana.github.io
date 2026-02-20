@@ -2,7 +2,7 @@
 Personal developer portfolio built with HTML, CSS, and JavaScript. Deployed using GitHub Pages.
 
 ### **🔗Live Website:** 
-`https://moominhana.github.io`
+https://moominhana.github.io
 
 Tech Stack: HTML5, CSS3, JavaScript, GitHub Pages
 
