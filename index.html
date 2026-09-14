@@ -1,409 +1,770 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Bea Sollesta</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bea Claire Sollesta's software development portfolio.">
+    <title>Bea Claire Sollesta | Portfolio</title>
+    <style>
 
-        <style>
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-                font-family: Arial, sans-serif;
-            }
+        :root { 
+            color-scheme: dark; 
+            --background: #121212; 
+            --surface: #1b1b1b; 
+            --raised: #222; 
+            --text: #f4f1eb; 
+            --muted: #a8a49d; 
+            --accent: #d9f36a; 
+            --border: rgba(255,255,255,.1); 
+            --radius: 16px; 
+            --content-width: 1120px; 
+        }
 
-            body {
-                background: #f4f4f4;
-                color: #333;
-                line-height: 1.6;
-            }
+        * { 
+            box-sizing: border-box; 
+        }
 
-            section {
-                padding: 60px 10%;
-            }
-
-            h2 {
-                margin-bottom: 20px;
-                font-size: 28px;
-                border-bottom: 2px solid #333;
-                display: inline-block;
-                padding-bottom: 5px;
-            }
-
-            /* HERO */
-            .hero {
-                text-align: center;
-                background: #111;
-                color: white;
-                padding: 100px 20px;
-            }
-
-            .hero h1 {
-                font-size: 40px;
-            }
-
-            .hero p {
-                margin-top: 10px;
-                font-size: 18px;
-                color: #bbb;
-            }
-
-            /* ABOUT */
-            .about-container {
-                display: flex;
-                gap: 40px;
-                flex-wrap: wrap;
-                align-items: center;
-            }
-
-            .about-container img {
-                width: 200px;
-                border-radius: 50%;
-            }
-
-            .about-text {
-                flex: 1;
-            }
-
-            /* SKILLS -- Currently commented out, but the styling is used in the Projects section for the skill tags */
-            .skills-list {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 15px;
-            }
-            /*
-            .skill {
-                background: #111;
-                color: white;
-                padding: 6px 15px;
-                border-radius: 20px;
-                font-size: 12px;
-            } */
-            .skill {
-                display: inline-block;
-                padding: 6px 13px;
-                border: 2px solid #111; 
-                border-radius: 20px;     
-                font-size: 12px;
-                color: #111;             
-                background: transparent; 
-                transition: all 0.3s ease;
-                cursor: default;
-            }
-
-            .skill:hover {
-                background: #111;
-                color: white;
-            }
-
-            /* PROJECTS CAROUSEL */
-            .carousel {
-                position: relative;
-                overflow: hidden;
-                max-width: 600px;
-                margin: auto;
-            }
-
-            .carousel-container {
-                display: flex;
-                transition: transform 0.5s ease-in-out;
-            }
-
-            .project-card {
-                min-width: 100%;
-                background: white;
-                padding: 20px;
-                border-radius: 8px;
-                box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            }
-
-            .carousel-buttons {
-                text-align: center;
-                margin-top: 15px;
-            }
-
-            .carousel-buttons button {
-                padding: 8px 15px;
-                margin: 5px;
-                cursor: pointer;
-                border: none;
-                background: #111;
-                color: white;
-                border-radius: 5px;
-            }
-
-            .carousel-indicators {
-                text-align: center;
-                margin-top: 15px;
-            }
-
-            .carousel-indicators .dot {
-                display: inline-block;
-                width: 12px;
-                height: 12px;
-                margin: 0 5px;
-                background-color: #bbb;
-                border-radius: 50%;
-                cursor: pointer;
-            }
-
-            .carousel-indicators .dot.active {
-                background-color: #111;
-            }
-
-            /* BLOG -- Ongoing Projects section is currently used instead of Blog, but the styling is kept for future use */
-            .blog-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 20px;
-            }
-
-            .blog-card {
-                background: white;
-                padding: 15px;
-                border-radius: 8px;
-                box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            }
-
-            .blog-card img {
-                width: 100%;
-                border-radius: 8px;
-                margin-bottom: 10px;
-            }
-
-            /* CONTACT */
-            .contact-list {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 15px;
-            }
-
-            .contact a{
-                display: inline-block;
-                padding: 6px 13px; 
-                border-radius: 20px;
-                font-size: 15px;
-                color: #111;             
-                background: transparent; 
-                transition: all 0.3s ease;
-                cursor: default;
-                text-decoration: none;
-            }
-
-            .contact a:hover {
-                background: #111;
-                color: white;
-            }
-
-            footer {
-                text-align: center;
-                padding: 20px;
-                background: #111;
-                color: white;
-            }
-
-            @media (max-width: 768px) {
-                .about-container {
-                    flex-direction: column;       
-                }
-
-                .about-container img {
-                    width: 150px;             
-                }
-            }
-
-        </style>
-    </head>
-    <body>
-
-        <!-- HERO -->
-        <section class="hero">
-            <h1>Bea Claire Sollesta</h1>
-            <p>Aspiring Full-Stack Developer & AI Enthusiast</p>
-        </section>
-
-        <!-- ABOUT -->
-        <section>
-            <h2>About Me</h2>
-            <div class="about-container">
-                <img src="/imgs/my-photo.png" alt="Profile Photo">
-                <div class="about-text">
-                    <p><strong>Education:</strong> 4th year BS Computer Science @DLSU</p>
-                    <p><strong>Interests:</strong> Web Development, AI/ML, Data Analysis</p>
-                    <br>
-                    <p>I develop full-stack, user-focused applications and explore AI/ML integration for intelligent, data-driven solutions. 
-                    I enjoy solving complex problems and collaborating with talented developers like, <a href="https://byanka8.github.io/portfolio/" target="_blank">Bianca Sollesta</a>↗.</p>
-                    <br>
-                    <p><strong>Available for a required internship in software development, IT, business intelligence, or data-related roles.</strong> <a href="#contact">Contact Me</a>.</p>
-                </div>
-            </div>
-        </section>
-
+        html { 
+            scroll-behavior: smooth; 
+        }
         
-        <!-- SKILLS 
-        <section>
-            <h2>Skills</h2>
-            <div class="skills-list">
-                <div class="skill">HTML/CSS</div>
-                <div class="skill">JavaScript</div>
-                <div class="skill">React</div>
-                <div class="skill">Node.js</div>
-                <div class="skill">MongoDB</div>
-                <div class="skill">Git</div>
-                <div class="skill">Prompt Engineering</div>
-            </div>
-        </section>
-        -->
+        body { 
+            margin: 0; 
+            background: var(--background); 
+            color: var(--text); 
+            font-family: "Trebuchet MS", "Segoe UI", sans-serif; 
+            line-height: 1.6; 
+        }
 
-        <!-- PROJECTS -->
-        <section>
-            <h2>Projects</h2>
-            <p>Here are some of the <a href="https://github.com/MoominHana" target="_blank">projects</a>↗ I've worked on, showcasing my skills in web development and machine learning.</p>
+        a { 
+            color: inherit; 
+        }
 
-            <div class="carousel">
-                <div class="carousel-container" id="carousel">
-                    <div class="project-card">
-                        <img src="/imgs/portfolio-website.png" alt="Portfolio Website" style="width:100%; border-radius:8px; margin-bottom:10px;">
-                        <h3>Portfolio Website</h3>
-                        <p>This responsive personal portfolio deployed using GitHub Pages.</p>
-                        <div class="skills-list">
-                            <div class="skill">Web Development</div>
-                            <div class="skill">HTML/CSS</div>
-                            <div class="skill">JavaScript</div>
-                            <div class="skill">React</div>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <img src="/imgs/image-classifier.png" alt="Image Classifier Dashboard" style="width:100%; border-radius:8px; margin-bottom:10px;">
-                        <h3>Image Classifier Dashboard</h3>
-                        <p>A Python-based gRPC program developed to simulate client-server distributed system.
-                        The dashboard acts as a the server displaying live updates of the clients or the training models.</p>
-                        <div class="skills-list">
-                            <div class="skill">Distributed Systems</div>
-                            <div class="skill">Python</div>
-                            <div class="skill">gRPC</div>
-                            <div class="skill">DearPyGui</div>
-                        </div>
-                    </div>
+        .site-header { 
+            position: sticky; 
+            top: 0; 
+            z-index: 10; 
+            border-bottom: 1px solid var(--border); 
+            background: rgba(18,18,18,.92); 
+            backdrop-filter: blur(14px); 
+        }
+        
+        .nav { 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            width: min(var(--content-width), calc(100% - 48px)); 
+            min-height: 72px; margin: auto; 
+        }
+        
+        .logo { 
+            font-weight: 700; 
+            letter-spacing: .04em; 
+            text-decoration: none; 
+        }
+        
+        .nav-links { 
+            display: flex; 
+            gap: 28px; 
+            list-style: none; 
+            margin: 0; 
+            padding: 0; 
+        }
+        
+        .nav-links a { 
+            color: var(--muted); 
+            font-size: .9rem; 
+            text-decoration: none; 
+        }
+        
+        .nav-links a:hover, .nav-links a:focus-visible, .social-links a:hover { 
+            color: var(--accent); 
+        }
+        
+        main { 
+            width: min(var(--content-width), calc(100% - 48px)); 
+            margin: auto; 
+        }
+        
+        section { 
+            padding: 128px 0; 
+            scroll-margin-top: 72px; 
+        }
+        
+        .eyebrow { 
+            margin: 0 0 10px; 
+            color: var(--accent); 
+            font-size: .78rem; 
+            font-weight: 700; 
+            letter-spacing: .14em; 
+            text-transform: uppercase; 
+        }
+        
+        h1, h2, h3, p { 
+            margin-top: 0; 
+        }
+        
+        h1 { 
+            max-width: 760px; 
+            margin-bottom: 20px; 
+            font-size: clamp(3rem, 8vw, 6.8rem); 
+            line-height: .98; 
+            letter-spacing: -.04em; 
+        }
+        
+        h2 { 
+            margin-bottom: 32px; 
+            font-size: clamp(2rem, 4vw, 3.5rem); 
+            line-height: 1; 
+            letter-spacing: -.03em; 
+        }
+        
+        h3 { 
+            margin-bottom: 10px; 
+            font-size: 1.35rem; 
+        }
+        
+        .intro { 
+            max-width: 600px; 
+            color: var(--muted); 
+            font-size: 1.15rem; 
+        }
+        
+        .bento-grid { 
+            display: grid; 
+            gap: 28px; 
+        }
+        
+        .about-grid { 
+            grid-template-columns: 2fr 1fr; 
+            align-items: stretch; 
+        }
 
-                    <div class="project-card">
-                        <img src="/imgs/forest-analysis.png" alt="Forest Structure Analysis" style="width:100%; border-radius:8px; margin-bottom:10px;">
-                        <h3>Forest Structure Analysis</h3>
-                        <p>ML-based forest structure analysis and classification with Random Forest, Decision Tree, and KNN.</p>
-                        <div class="skills-list">
-                            <div class="skill">Machine Learning</div>
-                            <div class="skill">Python</div>
-                            <div class="skill">Scikit-learn</div>
-                            <div class="skill">Pandas</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        .about-toolkit { 
+            grid-column: 1 / -1; 
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px 28px;
+        }
 
-            <div class="carousel-indicators" id="carousel-indicators">
-                <!-- JS will populate dots -->
-            </div>
+        .about-toolkit > .eyebrow,
+        .about-toolkit > h3 {
+            grid-column: 1 / -1;
+        }
 
-            <div class="carousel-buttons">
-                <button onclick="prevSlide()">Prev</button>
-                <button onclick="nextSlide()">Next</button>
-            </div>
+        .skill-group h4 {
+            margin: 0 0 12px;
+        }
+        
+        .project-grid { 
+            grid-template-columns: repeat(2, 1fr); 
+        }
+        
+        .contact-grid { 
+            grid-template-columns: 1.5fr 1fr; 
+            align-items: start; 
+        }
+        
+        .bento-box { 
+            padding: 28px; 
+            border: 1px solid var(--border); 
+            border-radius: var(--radius); 
+            background: var(--surface); 
+        }
+        
+        .bio-box { 
+            display: grid; 
+            grid-template-columns: 180px 1fr; 
+            gap: 28px;
+            align-items: stretch;
+            background: var(--raised); 
+        }
 
-        </section>
+        .bio-content {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .bio-box img { 
+            width: 180px; 
+            aspect-ratio: 1; 
+            border-radius: 12px; 
+            object-fit: cover; 
+            filter: grayscale(25%); 
+        }
+        
+        .bio-box p, .project-card p, .status-box p { 
+            color: var(--muted); 
+        }
+        
+        .bio-box .bio-status {
+            margin-top: auto;
+            margin-bottom: 0; 
+            padding-top: 18px;
+            border-top: 1px solid rgba(217,243,106,.35);
+            color: var(--accent);
+            font-size: .9rem;
+            font-weight: 700;
+        }
+        
+        .tag-list { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 10px; 
+            list-style: none; 
+            margin: 0; 
+            padding: 0; 
+        }
+        
+        .tag { 
+            padding: 6px 12px; 
+            border: 1px solid rgba(217,243,106,.45); 
+            border-radius: 999px; color: var(--accent); 
+            font-size: .8rem; 
+        }
 
-        <!-- ONGOING PROJECTS -->
-        <section>
-            <h2>Ongoing Projects</h2>
-            <p>These are some of the <a href="https://github.com/MoominHana" target="_blank">projects</a>↗ I'm currently working on to further develop my skills and explore new technologies.</p>
-            <div class="blog-grid">
-                <div class="blog-card">
-                    <h4>Room Reservation System</h4>
-                    <p><strong>Skills:</strong> Frontend Web Development</p>
-                    <p>In collaboration with Bianca: System for managing room reservations with user authentication and scheduling features.</p>
-                </div>
+        .project-meta { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 8px; 
+            margin: 8px 0 12px; 
+        }
 
-                <div class="blog-card">
-                    <h4>Pandigital Equation Puzzles</h4>
-                    <p><strong>Skills:</strong> Mobile Development</p>
-                    <p>An interactive mobile development project using React Native, aiming to challenge users with mathematical puzzles.</p>
-                </div>
-            </div>
-        </section>
+        .project-badge { 
+            display: inline-flex; 
+            align-items: center; 
+            padding: 5px 9px; 
+            border-radius: 999px; 
+            font-size: .68rem; 
+            font-weight: 700; 
+            letter-spacing: .04em; 
+            color: var(--text); 
+            background: rgba(255,255,255,0.04); 
+            border: 1px solid var(--border); 
+        }
 
-        <!-- BLOG
-        <section>
-            <h2>Blog</h2>
-            <div class="blog-grid">
-                <div class="blog-card">
-                    <img src="blog-image.jpg" alt="Blog Image">
-                    <h4>How I Built My Expense Tracker</h4>
-                    <p><strong>Category:</strong> Web Development</p>
-                    <p>A breakdown of how I structured my client-server architecture...</p>
-                </div>
+        .project-status {
+            border-color: rgba(217,243,106,.55);
+            background: rgba(217,243,106,.1);
+            color: var(--accent);
+        }
 
-                <div class="blog-card">
-                    <img src="blog-image.jpg" alt="Blog Image">
-                    <h4>Understanding Git Branches</h4>
-                    <p><strong>Category:</strong> Git</p>
-                    <p>What I learned about managing master and main branches...</p>
-                </div>
-            </div>
-        </section>
-        -->
+        .collaborator-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin: 2px 0 12px;
+            color: var(--muted);
+            font-size: .8rem;
+        }
 
-        <!-- CONTACT -->
-        <section id="contact" class="contact">
-            <h2>Contact Me</h2>
-            <div class="contact-list"> 
-                <a href="mailto:bclaire.sollesta04@gmail.com">Email</a>
-                <a href="https://github.com/moominhana" target="_blank">GitHub</a>
-                <a href="https://linkedin.com/in/bea-sollesta" target="_blank">LinkedIn</a>
-            </div>
-        </section>
+        .github-icon {
+            width: 15px;
+            height: 15px;
+            color: var(--text);
+        }
 
-        <footer>
-            © 2026 Bea Claire Sollesta · v1.2 (Q1 2026)
-        </footer>
+        .stack-list { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 7px; 
+            margin: 12px 0 16px; 
+            padding: 0; 
+            list-style: none; 
+        }
 
-        <script>
-            let index = 0;
-            const slides = document.querySelectorAll(".project-card");
-            const indicatorsContainer = document.getElementById("carousel-indicators");
+        .stack-item { 
+            display: inline-flex; 
+            align-items: center; 
+            padding: 5px 8px; 
+            border: 1px solid rgba(255,255,255,0.08); 
+            border-radius: 999px; 
+            background: rgba(255,255,255,0.02);
+            color: var(--muted);
+            font-size: .68rem;
+        }
 
-            // Initialize dots
-            slides.forEach((_, i) => {
-                const dot = document.createElement("span");
-                dot.classList.add("dot");
-                dot.addEventListener("click", () => {
-                    index = i;
-                    showSlide();
-                });
-                indicatorsContainer.appendChild(dot);
-            });
+        .project-cta { 
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 8px; 
+            margin-top: 4px;
+            padding: 9px 14px; 
+            border-radius: 999px; 
+            border: 1px solid var(--border); 
+            color: var(--text); 
+            text-decoration: none; 
+            transition: all 0.2s ease;
+            font-size: .85rem;
+            font-weight: 600;
+        }
 
-            function showSlide() {
-                const carousel = document.getElementById("carousel");
-                carousel.style.transform = "translateX(" + (-index * 100) + "%)";
-                
-                // Update dots
-                const dots = document.querySelectorAll(".dot");
-                dots.forEach(dot => dot.classList.remove("active"));
-                dots[index].classList.add("active");
+        .project-cta:hover { 
+            border-color: rgba(217,243,106,.4); 
+            background: rgba(217,243,106,.08); 
+            color: var(--accent);
+        }
+        
+        .location-box { 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between; 
+            min-height: 0;
+        }
+
+        .location-status-box {
+            display: grid;
+            align-content: stretch;
+        }
+
+        .location-status-box .info-block {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .location-status-box .info-block + .info-block {
+            border-top: 1px solid var(--border);
+        }
+
+        .inline-icon {
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            margin-right: 6px;
+            vertical-align: -.12em;
+            color: var(--accent);
+        }
+
+        .live-indicator {
+            position: relative;
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            margin: 0 8px 0 2px;
+            vertical-align: .08em;
+            border-radius: 50%;
+            background: #10b981;
+        }
+
+        .live-indicator::before {
+            position: absolute;
+            inset: -4px;
+            border: 1px solid rgba(16,185,129,.55);
+            border-radius: 50%;
+            content: "";
+            animation: status-pulse 2s ease-out infinite;
+        }
+
+        @keyframes status-pulse {
+            0% {
+                opacity: .8;
+                transform: scale(.7);
             }
-
-            function nextSlide() {
-                index = (index + 1) % slides.length;
-                showSlide();
+            70%, 100% {
+                opacity: 0;
+                transform: scale(1.8);
             }
+        }
+        
+        .location { 
+            margin: 0; 
+            font-size: 1.5rem; 
+        }
+        
+        .project-card { 
+            overflow: hidden; 
+            padding: 0; 
+        }
+        
+        .project-card img { 
+            display: block; 
+            width: 100%; 
+            aspect-ratio: 16 / 9; 
+            object-fit: cover; 
+            border-bottom: 1px solid var(--border); 
+        }
 
-            function prevSlide() {
-                index = (index - 1 + slides.length) % slides.length;
-                showSlide();
-            }
+        .project-preview {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-bottom: 1px solid var(--border);
+        }
 
-            // Show initial slide
-            showSlide();
-        </script>
-    </body>
+        .refstore-preview {
+            background: linear-gradient(135deg, #24484a, #6f9b78);
+        }
+
+        .sentinel-preview {
+            background: linear-gradient(135deg, #29264a, #8a536d);
+        }
+        
+        .project-card-content { 
+            display: flex;
+            flex-direction: column;
+            padding: 20px 22px 22px; 
+        }
+
+        .project-card-content h3 {
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+        }
+
+        .project-card-content p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+
+        .project-card-content .project-cta {
+            align-self: flex-start;
+            margin-top: auto;
+        }
+        
+        .star-project { 
+            grid-column: 1 / -1; 
+            background: var(--raised); 
+        }
+        
+        .star-project img { 
+            aspect-ratio: 2.4 / 1; 
+        }
+        
+        .project-label { 
+            color: var(--accent) !important; 
+            font-size: .75rem; 
+            font-weight: 700; 
+            letter-spacing: .1em; 
+            text-transform: uppercase; 
+        }
+        
+        .contact-form { 
+            display: grid; 
+            gap: 16px; 
+        }
+
+        .contact-fallback {
+            margin: -4px 0 0;
+            color: var(--muted);
+            font-size: .85rem;
+        }
+
+        .contact-fallback a {
+            color: var(--accent);
+            text-underline-offset: 4px;
+        }
+        
+        label { 
+            color: var(--muted); 
+            font-size: .85rem; 
+        }
+        
+        input, textarea { 
+            width: 100%; 
+            margin-top: 6px; 
+            padding: 13px 14px; 
+            border: 1px solid var(--border); 
+            border-radius: 8px; 
+            background: #151515; 
+            color: var(--text); 
+            font: inherit; 
+        }
+        
+        textarea { 
+            min-height: 140px; 
+            resize: vertical; 
+        }
+        
+        input:focus, textarea:focus { 
+            outline: 2px solid var(--accent); 
+            outline-offset: 2px; 
+        }
+        
+        button { 
+            width: fit-content; 
+            padding: 12px 20px; 
+            border: 0; 
+            border-radius: 999px; 
+            background: var(--accent); 
+            color: #121212; 
+            cursor: pointer; 
+            font: inherit; 
+            font-weight: 700; 
+        }
+        
+        button:hover { 
+            background: #efffa4; 
+        }
+        
+        .status-box { 
+            display: grid; 
+            gap: 24px; 
+        }
+        
+        .status { 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 8px; 
+            width: fit-content; 
+            padding: 7px 12px; 
+            border: 1px solid rgba(217,243,106,.4); 
+            border-radius: 999px; 
+            color: var(--accent); 
+            font-size: .8rem; 
+        }
+        
+        .status::before { 
+            width: 7px; 
+            height: 7px; 
+            border-radius: 50%; 
+            background: var(--accent); 
+            content: ""; 
+        }
+        
+        .social-links { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 18px; 
+        }
+        
+        .social-links a { 
+            text-underline-offset: 4px; 
+        }
+        
+        footer { 
+            padding: 28px 24px; 
+            border-top: 1px solid var(--border); 
+            color: var(--muted); 
+            text-align: center; 
+            font-size: .85rem; 
+        }
+        
+        @media (max-width: 760px) { 
+            .nav, main { width: min(100% - 32px, var(--content-width)); } 
+            .nav { min-height: 64px; } 
+            .nav-links { gap: 14px; } 
+            section { padding: 96px 0; } 
+            .about-grid, .project-grid, .contact-grid { grid-template-columns: 1fr; } 
+            .about-toolkit { grid-column: auto; }
+            .bio-box { grid-template-columns: 1fr; }
+            .bio-box img { width: 100%; max-width: 220px; } 
+            .about-toolkit { grid-template-columns: 1fr; }
+            .about-toolkit > .eyebrow,
+            .about-toolkit > h3 { grid-column: auto; }
+            .star-project { grid-column: auto; } 
+            .star-project img { aspect-ratio: 16 / 9; } 
+        }
+        
+        @media (max-width: 430px) { 
+            .logo { font-size: .9rem; } 
+            .nav-links { gap: 10px; font-size: .8rem; } 
+            .bento-box { padding: 22px; } 
+        }
+    
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav" aria-label="Primary navigation">
+            <a class="logo" href="#about">BCS / PORTFOLIO</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="about" aria-labelledby="about-title">
+            <p class="eyebrow">Full-Stack & AI Product Developer</p>
+            <!-- <h1 id="about-title">Bridging Core Software Engineering & Intelligent AI Systems.</h1> -->
+            <h1 id="about-title">Bridging core software development with hands-on AI engineering.</h1>
+            <p class="intro">Graduating Computer Science specializing in Software Technology student. 
+                Loves taking raw ideas and turning them into functional, well-designed software, whether building full-stack web and mobile apps or tweaking LLM prompts.</p>
+            <div class="bento-grid about-grid">
+                <article class="bento-box bio-box">
+                    <img src="imgs/my-photo.png" alt="Portrait of Bea Claire Sollesta">
+                    <div class="bio-content">
+                        <h3>About Me</h3>
+                        <p>My experience spans full-stack web and mobile development (React, Node.js, SQL/MongoDB) alongside hands-on AI prompt architecture.
+                            I thrive in collaborative environments where I can build reliable software, solve real-world problems, and deliver practical engineering solutions.
+                        </p>
+                        <p class="bio-status">Actively seeking full-time opportunities in Software Engineering, AI Product Development, and Data Analytics.</p>
+                    </div>
+                </article>
+                <article class="bento-box location-box location-status-box">
+                    <div class="info-block">
+                        <p class="eyebrow">Location</p>
+                        <p class="location">
+                            <svg class="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"></path>
+                                <circle cx="12" cy="10" r="2.5"></circle>
+                            </svg>
+                            Metro Manila / BGC, Philippines
+                        </p>
+                        <p class="location">
+                            <svg class="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"></path>
+                                <circle cx="12" cy="10" r="2.5"></circle>
+                            </svg>
+                            Remote / Global
+                        </p>
+                    </div>
+                    <div class="info-block">
+                        <p class="eyebrow">Status</p>
+                        <p class="location"><span class="live-indicator" aria-hidden="true"></span>Open for Roles <span class="status-detail">&bull; On-Site, Hybrid, & Remote</span></p>
+                    </div>
+                </article>
+                <article class="bento-box about-toolkit">
+                    <p class="eyebrow">Toolkit</p>
+                    <h3>Skills & interests</h3>
+                    <div class="skill-group">
+                        <h4>Full-Stack & Core:</h4>
+                        <ul class="tag-list" aria-label="Full-stack skills">
+                            <li class="tag">React / React Native</li>
+                            <li class="tag">Next.js</li>
+                            <li class="tag">Node.js</li>
+                            <li class="tag">JavaScript / TypeScript</li>
+                            <li class="tag">HTML5 & CSS3</li>
+                        </ul>
+                    </div>
+                    <div class="skill-group">
+                        <h4>Databases & Architecture:</h4>
+                        <ul class="tag-list" aria-label="Database skills">
+                            <li class="tag">MySQL</li>
+                            <li class="tag">MongoDB</li>
+                            <li class="tag">RESTful APIs</li>
+                            <li class="tag">Relational DB Design</li>
+                            <li class="tag">PostgreSQL</li>
+                        </ul>
+                    </div>
+                    <div class="skill-group">
+                        <h4>AI Specialization and Testing:</h4>
+                        <ul class="tag-list" aria-label="AI skills">
+                            <li class="tag">Prompt Engineering</li>
+                            <li class="tag">LLM Integration</li>
+                            <li class="tag">Guardrail Design</li>
+                            <li class="tag">UAT & Verification</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <section id="projects" aria-labelledby="projects-title">
+            <p class="eyebrow">Selected work</p>
+            <h2 id="projects-title">Projects</h2>
+            <div class="bento-grid project-grid">
+                <article class="bento-box project-card star-project">
+                    <img src="imgs/proj-rrm.png" alt="Preview of a portfolio website">
+                    <div class="project-card-content">
+                        <p class="project-label">Star project</p>
+                        <h3>Room Reservation System</h3>
+                        <p class="collaborator-pill">
+                            <svg class="github-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.74.08-.74 1.2.09 1.83 1.23 1.83 1.23 1.07 1.83 2.81 1.3 3.5 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.94 0-1.31.47-2.38 1.23-3.22-.12-.3-.53-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.46 11.46 0 0 1 6 0c2.3-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.76.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.63-5.48 5.93.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57A12 12 0 0 0 12 .5Z"></path>
+                            </svg>
+                            Co-developed with <a href="https://github.com/byanka8" target="_blank" rel="noreferrer">@byanka8</a>
+                        </p>
+                        <div class="project-meta">
+                            <span class="project-badge">Full-Stack Application</span>
+                            <span class="project-badge">Collaborative Build</span>
+                            <span class="project-badge project-status">Live (Continuous Integration / QA)</span>
+                        </div>
+                        <p class="project-description">A collaborative full-stack room booking platform designed to streamline facility scheduling with real-time updates and interactive calendars. Managed using ClickUp for agile development workflows, active maintenance, and ongoing feature updates.</p>
+                        <ul class="stack-list" aria-label="Room Reservation System tech stack">
+                            <li class="stack-item">React</li>
+                            <li class="stack-item">Node.js</li>
+                            <li class="stack-item">MongoDB</li>
+                            <li class="stack-item">Typescript</li>
+                        </ul>
+                        <a class="project-cta" href="https://github.com/byanka8/RoomReservationSystem" target="_blank" rel="noreferrer">GitHub Repository ↗</a>
+                    </div>
+                </article>
+                <article class="bento-box project-card">
+                    <div class="project-preview refstore-preview" role="img" aria-label="Color preview for RefStore"></div>
+                    <div class="project-card-content">
+                        <h3>RefStore</h3>
+                        <div class="project-meta">
+                            <span class="project-badge">Smart Storage & Inventory App</span>
+                            <span class="project-badge">Concept Build</span>
+                            <span class="project-badge project-status">Designing</span>
+                        </div>
+                        <p class="project-description">A mobile application designed to track refrigerator inventory, monitor expiration dates, and minimize food waste. Currently in the architecture and wireframing phase.</p>
+                        <ul class="stack-list" aria-label="RefrigiraStore tech stack">
+                            <li class="stack-item">React Native</li>
+                            <li class="stack-item">Supabase</li>
+                            <li class="stack-item">PostgreSQL</li>
+                        </ul>
+                        <!-- Add the architecture modal trigger and dialog once the schema and system design are ready.
+                        <button class="project-cta" type="button" data-modal-target="refstore-architecture">View Architecture</button>
+                        <dialog id="refstore-architecture" aria-labelledby="refstore-architecture-title">
+                            <h3 id="refstore-architecture-title">RefStore Architecture</h3>
+                            <p>Database schema and system design specifications will be added here.</p>
+                            <button type="button" formmethod="dialog">Close</button>
+                        </dialog>
+                        -->
+                    </div>
+                </article>
+                <article class="bento-box project-card">
+                    <div class="project-preview sentinel-preview" role="img" aria-label="Color preview for Sentinel-Triage AI"></div>
+                    <div class="project-card-content">
+                        <h3>Sentinel-Triage AI</h3>
+                        <div class="project-meta">
+                            <span class="project-badge">Full Stack / AI-Powered SaaS</span>
+                            <span class="project-badge project-status">In Development</span>
+                        </div>
+                        <p class="project-description">An exploratory full-stack project series aimed at deep-diving into LLM orchestration and type-safe backend patterns. Features an automated customer support triage system powered by Neon PostgreSQL and Zod validation to streamline ticket response workflows.</p>
+                        <ul class="stack-list" aria-label="Sentinel-Triage AI tech stack">
+                            <li class="stack-item">Next.js</li>
+                            <li class="stack-item">PostgreSQL</li>
+                            <li class="stack-item">AI/LLM</li>
+                            <li class="stack-item">Zod</li>
+                        </ul>
+                        <a class="project-cta" href="https://github.com/MoominHana/sentinel-triage-ai" target="_blank" rel="noreferrer">GitHub Repository ↗</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <section id="contact" aria-labelledby="contact-title">
+            <p class="eyebrow">Start a conversation</p>
+            <h2 id="contact-title">Contact</h2>
+            <div class="bento-grid contact-grid">
+                <form class="bento-box contact-form" action="https://api.web3forms.com/submit" method="POST">
+                    <h3>Send a message</h3>
+                    <input type="hidden" name="access_key" value="1ecceddb-1f2d-4fdf-b066-b1ddddeff22c">
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                    <label for="name">Name
+                        <input id="name" name="name" type="text" placeholder="Your name" required>
+                    </label>
+                    <label for="email">Email
+                        <input id="email" name="email" type="email" placeholder="you@example.com" required>
+                    </label>
+                    <label for="message">Message
+                        <textarea id="message" name="message" placeholder="Tell me a little about your project" required></textarea>
+                    </label>
+                    <button type="submit">Send message</button>
+                    <p class="contact-fallback">Or reach out directly via <a href="mailto:bclaire.sollesta04@gmail.com">email</a>.</p>
+                </form>
+                <aside class="bento-box status-box" aria-label="Availability and social links">
+                    <div>
+                        <p class="eyebrow">Availability</p>
+                        <span class="status">Open to Opportunities</span>
+
+                        <p>Currently available for full-time Software Development, Full-Stack, and AI Product Engineering roles (BGC / Metro Manila & Remote).</p>
+                    </div>
+                    <div>
+                        <h3>Elsewhere</h3>
+                        <nav class="social-links" aria-label="Social links">
+                            <a href="https://github.com/moominhana" target="_blank" rel="noreferrer">GitHub</a>
+                            <a href="https://linkedin.com/in/bea-sollesta" target="_blank" rel="noreferrer">LinkedIn</a>
+                            <a href="mailto:bclaire.sollesta04@gmail.com">Email</a>
+                        </nav>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+    </main>
+    <footer>© 2026 Bea Claire Sollesta · v2.0 (Q3 2026)</footer>
+</body>
 </html>
