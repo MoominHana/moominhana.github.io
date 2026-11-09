@@ -7,6 +7,7 @@ https://moominhana.github.io
 Tech Stack: HTML5, CSS3, JavaScript, GitHub Pages
 
 ### **🛠️Current Version**
+- v2.3 (Q4 2026) - updated contact emails
 - v2.2 (Q3 2026) - added image for sentinel-triage-ai project.
 - v2.1 (Q3 2026) - added a thank you page for submitting a message.
 - v2.0 (Q3 2026) - refreshed the portfolio design, expanded personal and project information, improved project presentation, and upgraded the contact form and submission experience.
